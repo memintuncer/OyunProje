@@ -1598,6 +1598,7 @@ GameObject:
   - component: {fileID: 347106627}
   - component: {fileID: 347106628}
   - component: {fileID: 3982443288712943019}
+  - component: {fileID: 1341458594}
   m_Layer: 0
   m_Name: Sci-Fi_Soldier
   m_TagString: Untagged
@@ -1614,7 +1615,7 @@ Transform:
   m_GameObject: {fileID: 100096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 400094}
   - {fileID: 400092}
@@ -1632,10 +1633,10 @@ Animator:
   m_GameObject: {fileID: 100096}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b6c33e1d6632025468fb37a04e312606, type: 3}
-  m_Controller: {fileID: 9100000, guid: ce0e359029045564098d1e50138f2313, type: 2}
+  m_Controller: {fileID: 9100000, guid: dffbd9326394a8d47a87a1e2aec70a59, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1668,10 +1669,10 @@ MonoBehaviour:
   rightGunBone: {fileID: 400018}
   leftGunBone: {fileID: 400050}
   arsenal:
-  - name: Empty
+  - name: Rifle
     rightGun: {fileID: 100000, guid: d992a232642f7574b80a75c2ca4b4cb8, type: 3}
     leftGun: {fileID: 0}
-    controller: {fileID: 9100000, guid: ce0e359029045564098d1e50138f2313, type: 2}
+    controller: {fileID: 9100000, guid: dffbd9326394a8d47a87a1e2aec70a59, type: 2}
 --- !u!54 &347106627
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1713,7 +1714,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eba1c8bc65891b4181b80809140db8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseRotation: {fileID: 0}
-  rotationSpeed: 0
-  firingRange: 0
-  muzzelFlash: {fileID: 0}
+  rig: {fileID: 400094}
+  firingRange: 5
+  moveSpeed: 0.5
+--- !u!135 &1341458594
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100096}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

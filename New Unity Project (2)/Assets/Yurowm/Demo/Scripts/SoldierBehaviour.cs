@@ -14,8 +14,8 @@ public class SoldierBehaviour : MonoBehaviour
     //public float rotationSpeed;
     // Distance the soldier can aim and fire from
     public float firingRange;
+    public float moveSpeed;
 
-    
 
     // Used to start and stop the turret firing
     bool canFire = false;
@@ -27,9 +27,10 @@ public class SoldierBehaviour : MonoBehaviour
     void Start()
     {
         // Set the firing range distance
-        this.GetComponent<SphereCollider>().radius = firingRange / transform.localScale.x;
+        this.GetComponent<SphereCollider>().radius = firingRange / transform.localScale.x; //This assumes object is scaled equally on every axis
         //Set actions script
         act = this.GetComponent<Actions>();
+     
     }
 
     // Update is called once per frame
@@ -51,6 +52,7 @@ public class SoldierBehaviour : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             target = other.transform;
+
             canFire = true;
 
         }
@@ -78,10 +80,9 @@ public class SoldierBehaviour : MonoBehaviour
             Vector3 vec = new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z);
         
             this.transform.LookAt(vec);
-            act.Walk();
+            act.WalkAndFire();
             
-            //transform.position += transform.forward * 5 * Time.deltaTime;
-            act.Attack();
+            transform.position += transform.forward * moveSpeed * Time.deltaTime;
             
             
         }
