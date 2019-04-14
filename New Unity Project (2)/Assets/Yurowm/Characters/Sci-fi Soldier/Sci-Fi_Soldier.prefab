@@ -1715,8 +1715,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rig: {fileID: 400094}
-  firingRange: 5
-  moveSpeed: 0.5
+  head: {fileID: 400000}
+  fieldOfViewAngle: 170
+  firingRange: 10
+  moveSpeed: 1
 --- !u!135 &1341458594
 SphereCollider:
   m_ObjectHideFlags: 0

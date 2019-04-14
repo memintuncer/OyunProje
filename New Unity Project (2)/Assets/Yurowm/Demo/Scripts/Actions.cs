@@ -18,12 +18,15 @@ public class Actions : MonoBehaviour
     public void Stay()
     {
         animator.SetBool("Aiming", false);
+        animator.SetBool("Attack", false);
         animator.SetFloat("Speed", 0f);
+        
     }
 
     public void Walk()
     {
         animator.SetBool("Aiming", false);
+        animator.SetBool("Attack", false);
         animator.SetFloat("Speed", 0.5f);
     }
 
@@ -31,7 +34,8 @@ public class Actions : MonoBehaviour
     {
         animator.SetFloat("Speed", 0.5f);
         animator.SetBool("Aiming", true);
-        animator.SetTrigger("Attack");
+        animator.SetBool("Attack", true);
+
     }
 
     public void Run()
@@ -43,7 +47,8 @@ public class Actions : MonoBehaviour
     public void Attack()
     {
         Aiming();
-        animator.SetTrigger("Attack");
+        animator.SetBool("Attack", true);
+
     }
 
     public void Death()

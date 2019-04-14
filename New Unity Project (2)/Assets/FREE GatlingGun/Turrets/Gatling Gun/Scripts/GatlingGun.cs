@@ -14,6 +14,7 @@ public class GatlingGun : MonoBehaviour
 
     // Gun barrel rotation
     public float barrelRotationSpeed;
+    public float fieldOfViewAngle = 110.0f;
     float currentRotationSpeed;
 
     // Distance the turret can aim and fire from
@@ -24,17 +25,26 @@ public class GatlingGun : MonoBehaviour
 
     // Used to start and stop the turret firing
     bool canFire = false;
+    bool inRange = false;
 
     
     void Start()
     {
         // Set the firing range distance
         this.GetComponent<SphereCollider>().radius = firingRange;
+        muzzelFlash.Stop();
     }
 
     void Update()
     {
-        AimAndFire();
+        if (inRange)
+        {
+            IsPlayerSpotted();
+        }
+        if (canFire)
+        {
+            AimAndFire();
+        }
     }
 
     void OnDrawGizmosSelected()
@@ -47,20 +57,56 @@ public class GatlingGun : MonoBehaviour
     // Detect an Enemy, aim and fire
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Player")
         {
-            go_target = other.transform;
-            canFire = true;
+            inRange = true;
         }
 
     }
     // Stop firing
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Player")
         {
             canFire = false;
+            inRange = false;
+            Stop();
         }
+    }
+
+    void IsPlayerSpotted()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        go_target = player.transform;
+        Vector3 direction = go_target.transform.position - go_barrel.position;
+
+        //Debug.DrawRay(go_barrel.position, direction.normalized, Color.black,firingRange);
+        float angle = Vector3.Angle(direction, go_barrel.transform.forward);
+
+        //In field of view of soldier
+        if (angle < fieldOfViewAngle * 0.5)
+        {
+            //Not blocked by any other object, soldier can see player
+            if (Physics.Raycast(go_barrel.position, direction.normalized, out RaycastHit hit, firingRange))
+            {
+                //Did the ray hit the player
+                if (hit.collider.gameObject == player)
+                {
+                    canFire = true;
+                    Debug.Log("Found");
+                }
+                else
+                {
+                    //Call idle animation in case he lost player
+                    canFire = false;
+                    Stop();
+                    Debug.Log("Lost");
+                }
+
+            }
+
+        }
+
     }
 
     void AimAndFire()
@@ -89,14 +135,19 @@ public class GatlingGun : MonoBehaviour
         }
         else
         {
-            // slow down barrel rotation and stop
-            currentRotationSpeed = Mathf.Lerp(currentRotationSpeed, 0, 10 * Time.deltaTime);
+            Stop();
+        }
+    }
 
-            // stop the particle system
-            if (muzzelFlash.isPlaying)
-            {
-                muzzelFlash.Stop();
-            }
+    void Stop()
+    {
+        // slow down barrel rotation and stop
+        currentRotationSpeed = Mathf.Lerp(currentRotationSpeed, 0, 10 * Time.deltaTime);
+
+        // stop the particle system
+        if (muzzelFlash.isPlaying)
+        {
+            muzzelFlash.Stop();
         }
     }
 }
