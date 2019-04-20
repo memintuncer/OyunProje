@@ -37,7 +37,7 @@ public class SoldierBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
 
         if (inRange)
         {
@@ -70,10 +70,10 @@ public class SoldierBehaviour : MonoBehaviour
         if (angle < fieldOfViewAngle * 0.5)
         {
             //Not blocked by any other object, soldier can see player
-            if (Physics.Raycast(head.position, direction.normalized, out RaycastHit hit,firingRange))
+            if (Physics.Raycast(head.position, direction.normalized, out RaycastHit hit, firingRange))
             {
                 //Did the ray hit the player
-                if(hit.collider.gameObject == player)
+                if (hit.collider.gameObject == player)
                 {
                     canFire = true;
                 }
@@ -83,7 +83,7 @@ public class SoldierBehaviour : MonoBehaviour
                     canFire = false;
                     act.Stay();
                 }
-                
+
             }
 
         }
