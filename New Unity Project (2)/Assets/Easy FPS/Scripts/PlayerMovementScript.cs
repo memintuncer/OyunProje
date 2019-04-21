@@ -21,7 +21,6 @@ public class PlayerMovementScript : MonoBehaviour {
 	void Awake(){
 		rb = GetComponent<Rigidbody>();
 		cameraMain = transform.Find("Main Camera").transform;
-		bulletSpawn = cameraMain.Find ("BulletSpawn").transform;
 		ignoreLayer = 1 << LayerMask.NameToLayer ("Player");
 
 	}
@@ -214,9 +213,6 @@ public class PlayerMovementScript : MonoBehaviour {
 	private LayerMask ignoreLayer;//to ignore player layer
 	Ray ray1, ray2, ray3, ray4, ray5, ray6, ray7, ray8, ray9;
 	private float offsetStart = 0.05f;
-	[Tooltip("Put BulletSpawn gameobject here, palce from where bullets are created.")]
-	[HideInInspector]
-	public Transform bulletSpawn; //from here we shoot a ray to check where we hit him;
 
     
 

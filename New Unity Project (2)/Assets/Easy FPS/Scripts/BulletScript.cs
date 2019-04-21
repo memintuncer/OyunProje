@@ -37,4 +37,14 @@ public class BulletScript : MonoBehaviour {
 		Destroy(gameObject, 5.0f);
 	}
 
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    Health h;
+    //    if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy")
+    //    {
+    //        h = other.GetComponent<Health>();
+    //        h.healthPoint--;
+    //    }
+
+    //}
 }

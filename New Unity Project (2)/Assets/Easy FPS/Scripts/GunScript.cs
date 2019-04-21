@@ -35,8 +35,7 @@ public class GunScript : MonoBehaviour {
 		secondCamera = GameObject.FindGameObjectWithTag("SecondCamera").GetComponent<Camera>();
 		cameraComponent = mainCamera.GetComponent<Camera>();
 		pmS = player.GetComponent<PlayerMovementScript>();
-
-		bulletSpawnPlace = GameObject.FindGameObjectWithTag("BulletSpawn");
+        
 		//hitMarker = transform.Find ("hitMarkerSound").GetComponent<AudioSource> ();
         
 
@@ -218,7 +217,7 @@ public class GunScript : MonoBehaviour {
 	}
 
 	[Header("Shooting setup - MUSTDO")]
-	[HideInInspector] public GameObject bulletSpawnPlace;
+	public GameObject bulletSpawnPlace;
 	[Tooltip("Bullet prefab that this waepon will shoot.")]
 	public GameObject bullet;
 	/*
