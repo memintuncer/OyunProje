@@ -83,8 +83,7 @@ void FixedUpdate(){
 
 
 	ApplyingStuff();
-
-
+        
 }
 
 
