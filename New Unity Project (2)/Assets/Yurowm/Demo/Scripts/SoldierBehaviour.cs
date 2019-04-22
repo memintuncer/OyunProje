@@ -9,7 +9,7 @@ public class SoldierBehaviour : MonoBehaviour
     public Transform rig;
     public Transform head;
     public float fieldOfViewAngle = 170.0f;
-
+    public float health = 150f;
 
     //public float rotationSpeed;
     // Distance the soldier can aim and fire from
@@ -37,16 +37,19 @@ public class SoldierBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
-        if (inRange)
+        if (health > 0)
         {
-            IsPlayerSpotted();
+            if (inRange)
+            {
+                IsPlayerSpotted();
+            }
+            if (canFire)
+            {
+                AimAndFire();
+            }
         }
-        if (canFire)
-        {
-            AimAndFire();
-        }
+       
 
     }
 
@@ -70,10 +73,10 @@ public class SoldierBehaviour : MonoBehaviour
         if (angle < fieldOfViewAngle * 0.5)
         {
             //Not blocked by any other object, soldier can see player
-            if (Physics.Raycast(head.position, direction.normalized, out RaycastHit hit,firingRange))
+            if (Physics.Raycast(head.position, direction.normalized, out RaycastHit hit, firingRange))
             {
                 //Did the ray hit the player
-                if(hit.collider.gameObject == player)
+                if (hit.collider.gameObject == player)
                 {
                     canFire = true;
                 }
@@ -83,7 +86,7 @@ public class SoldierBehaviour : MonoBehaviour
                     canFire = false;
                     act.Stay();
                 }
-                
+
             }
 
         }
@@ -121,5 +124,20 @@ public class SoldierBehaviour : MonoBehaviour
 
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
 
+    }
+
+    public void RemoveHealth(float damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            act.Death();
+           
+        }
+        else
+        {
+            act.Damage();
+        }
     }
 }
