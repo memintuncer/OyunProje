@@ -1594,14 +1594,16 @@ GameObject:
   - component: {fileID: 400096}
   - component: {fileID: 9500000}
   - component: {fileID: 11400000}
+  - component: {fileID: 1442703174561958245}
   - component: {fileID: 11400002}
+  - component: {fileID: 6543431288313639467}
   - component: {fileID: 347106627}
   - component: {fileID: 347106628}
   - component: {fileID: 3982443288712943019}
-  - component: {fileID: 1341458594}
+  - component: {fileID: 5280203681404752608}
   m_Layer: 0
   m_Name: Sci-Fi_Soldier
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1654,6 +1656,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2a2b926602061448ef115efa490222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1442703174561958245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d376ac73fb882a04884be2ce214ad66b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 1
+  isDead: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1673,6 +1689,18 @@ MonoBehaviour:
     rightGun: {fileID: 100000, guid: d992a232642f7574b80a75c2ca4b4cb8, type: 3}
     leftGun: {fileID: 0}
     controller: {fileID: 9100000, guid: dffbd9326394a8d47a87a1e2aec70a59, type: 2}
+--- !u!114 &6543431288313639467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100096}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85bede49db994a4da33b81ecf4dfaab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &347106627
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1700,7 +1728,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1, z: 0.5}
+  m_Size: {x: 0.3, y: 0.9, z: 0.3}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &3982443288712943019
 MonoBehaviour:
@@ -1717,18 +1745,31 @@ MonoBehaviour:
   rig: {fileID: 400094}
   head: {fileID: 400000}
   fieldOfViewAngle: 170
-  firingRange: 10
+  firingRange: 50
   moveSpeed: 1
---- !u!135 &1341458594
-SphereCollider:
+  canFire: 0
+  destroyed: 0
+  enemyFound: 0
+  lastKnownPosition: {x: 0, y: 0, z: 0}
+--- !u!195 &5280203681404752608
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100096}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
+  m_Enabled: 0
+  m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

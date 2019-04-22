@@ -25,22 +25,18 @@ public class GatlingGun : MonoBehaviour
 
     // Used to start and stop the turret firing
     bool canFire = false;
-    bool inRange = false;
 
     
     void Start()
     {
         // Set the firing range distance
-        this.GetComponent<SphereCollider>().radius = firingRange;
         muzzelFlash.Stop();
     }
 
     void Update()
     {
-        if (inRange)
-        {
-            IsPlayerSpotted();
-        }
+        IsPlayerSpotted();
+       
         if (canFire)
         {
             AimAndFire();
@@ -54,25 +50,7 @@ public class GatlingGun : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, firingRange);
     }
 
-    // Detect an Enemy, aim and fire
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            inRange = true;
-        }
-
-    }
-    // Stop firing
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            canFire = false;
-            inRange = false;
-            Stop();
-        }
-    }
+    
 
     void IsPlayerSpotted()
     {

@@ -13,6 +13,7 @@ public class PlayerMovementScript : MonoBehaviour {
 	public float jumpForce = 500;
 	[Tooltip("Position of the camera inside the player")]
 	[HideInInspector]public Vector3 cameraPosition;
+    HealthScript health;
 
 	/*
 	 * Getting the Players rigidbody component.
@@ -22,6 +23,7 @@ public class PlayerMovementScript : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		cameraMain = transform.Find("Main Camera").transform;
 		ignoreLayer = 1 << LayerMask.NameToLayer ("Player");
+        health = this.GetComponent<HealthScript>();
 
 	}
 	private Vector3 slowdownV;
@@ -90,14 +92,19 @@ public class PlayerMovementScript : MonoBehaviour {
 	* Update loop calling other stuff
 	*/
 	void Update(){
-		
 
-		Jumping ();
+        if (!health.isDead)
+        {
+            Jumping();
 
-		Crouching();
+            Crouching();
 
-		WalkingSound ();
-
+            WalkingSound();
+        }
+        else
+        {
+            Debug.Log("Game over");
+        }
 
 	}//end update
 
@@ -204,15 +211,10 @@ public class PlayerMovementScript : MonoBehaviour {
 		grounded = false;
 	}
 
-
-	RaycastHit hitInfo;
-
-	private string currentWeapo;
+   
 	[Tooltip("Put 'Player' layer here")]
 	[Header("Shooting Properties")]
 	private LayerMask ignoreLayer;//to ignore player layer
-	Ray ray1, ray2, ray3, ray4, ray5, ray6, ray7, ray8, ray9;
-	private float offsetStart = 0.05f;
 
     
 

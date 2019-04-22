@@ -344,7 +344,7 @@ public class GunScript : MonoBehaviour {
 				HUD_bullets = GameObject.Find("HUD_bullets").GetComponent<TextMesh>();
 			}
 			catch(System.Exception ex){
-				print("Couldnt find the HUD_Bullets ->" + ex.StackTrace.ToString());
+				//print("Couldnt find the HUD_Bullets ->" + ex.StackTrace.ToString());
 			}
 		}
 		if(mls && HUD_bullets)

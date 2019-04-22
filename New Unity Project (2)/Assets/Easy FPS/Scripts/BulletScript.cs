@@ -14,37 +14,37 @@ public class BulletScript : MonoBehaviour {
 	public GameObject bloodEffect;
 	[Tooltip("Put Weapon layer and Player layer to ignore bullet raycast.")]
 	public LayerMask ignoreLayer;
+    public float bulletDamageAmount = 1;
 
-	/*
+    /*
 	* Uppon bullet creation with this script attatched,
 	* bullet creates a raycast which searches for corresponding tags.
 	* If raycast finds somethig it will create a decal of corresponding tag.
 	*/
-	void Update () {
-		if(Physics.Raycast(transform.position, transform.forward,out hit, maxDistance, ~ignoreLayer)){
-			if(decalHitWall){
-				if(hit.transform.tag == "LevelPart"){
-					Instantiate(decalHitWall, hit.point + hit.normal * floatInfrontOfWall, Quaternion.LookRotation(hit.normal));
-					//Destroy(gameObject);
-				}
-				if(hit.transform.tag == "Enemy"){
-					Instantiate(bloodEffect, hit.point, Quaternion.LookRotation(hit.normal));
-					//Destroy(gameObject);
-				}
-			}		
-			//Destroy(gameObject);
-		}
-		Destroy(gameObject, 5.0f);
-	}
+    void Update () {
+        Destroy(gameObject, 5.0f);
+    }
 
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    Health h;
-    //    if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy")
-    //    {
-    //        h = other.GetComponent<Health>();
-    //        h.healthPoint--;
-    //    }
+    void OnTriggerEnter(Collider other)
+    {
 
-    //}
+        if (other.transform.tag == "LevelPart")
+        {
+        //    Vector3 pos =new Vector3(this.transform.position.x + floatInfrontOfWall, this.transform.position.y, this.transform.position.z);
+        //    Instantiate(decalHitWall, pos, /*?*/Quaternion.LookRotation(other.transform.forward));
+            //Destroy the bullet
+            Destroy(gameObject);
+        }
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy")
+        {
+
+            HealthScript h = other.gameObject.GetComponent<HealthScript>();
+            h.Damage(bulletDamageAmount);
+            Instantiate(bloodEffect, this.transform.position, other.transform.rotation);
+            //Destroy the bullet
+            Destroy(gameObject);
+
+        }
+
+    }
 }

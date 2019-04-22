@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class SoldierBehaviour : MonoBehaviour
 {
     Transform target;
@@ -18,34 +17,46 @@ public class SoldierBehaviour : MonoBehaviour
 
 
     // Used to start and stop the firing
-    bool canFire = false;
-    bool inRange = false;
+    [HideInInspector]public bool canFire = false;
+    [HideInInspector]public bool destroyed = false;
+    [HideInInspector]public bool enemyFound = false;
 
     //For animation handling
     Actions act;
+    Animator animator;
+    HealthScript health;
+    [HideInInspector] public Vector3 lastKnownPosition;
+
 
     // Start is called before the first frame update
     void Start()
     {
         // Set the firing range distance
-        this.GetComponent<SphereCollider>().radius = firingRange / transform.localScale.x; //This assumes object is scaled equally on every axis
         //Set actions script
         act = this.GetComponent<Actions>();
-
+        health = this.GetComponent<HealthScript>();
+        animator = this.GetComponent<Animator>();
+        lastKnownPosition = this.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
-        if (inRange)
+        if (!health.isDead)
         {
             IsPlayerSpotted();
         }
-        if (canFire)
+        if(health.isDead && !destroyed)
         {
-            AimAndFire();
+            act.Death();
+
+            //If collider is not adjusted it acts like it still lives
+            BoxCollider bc = this.GetComponent<BoxCollider>();
+            bc.center = new Vector3(bc.center.x, bc.center.y/ 5, bc.center.z);
+            bc.size = new Vector3(bc.size.x, bc.size.y / 4, bc.size.z);
+            
+            Destroy(gameObject, 20.0f);
+            destroyed = true;
         }
 
     }
@@ -72,54 +83,33 @@ public class SoldierBehaviour : MonoBehaviour
             //Not blocked by any other object, soldier can see player
             if (Physics.Raycast(head.position, direction.normalized, out RaycastHit hit, firingRange))
             {
+                
                 //Did the ray hit the player
                 if (hit.collider.gameObject == player)
                 {
+                    act.Aiming();
+                    Vector3 vec = new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z);
+                    lastKnownPosition = hit.transform.position;
+                    
+                    this.transform.LookAt(vec);
                     canFire = true;
+                    enemyFound = true;
+                   
                 }
                 else
                 {
                     //Call idle animation in case he lost player
+                    enemyFound = false;
                     canFire = false;
-                    act.Stay();
+                    
                 }
 
             }
 
         }
-
-
-    }
-
-    // Detect an Enemy, aim and fire
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            inRange = true;
-        }
-    }
-
-    // Stop firing
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            canFire = false;
-            inRange = false;
-            act.Stay();
-        }
-    }
-
-    void AimAndFire()
-    {
-
-        Vector3 vec = new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z);
-
-        this.transform.LookAt(vec);
-        act.WalkAndFire();
-
-        transform.position += transform.forward * moveSpeed * Time.deltaTime;
+        
 
     }
+    
+    
 }
