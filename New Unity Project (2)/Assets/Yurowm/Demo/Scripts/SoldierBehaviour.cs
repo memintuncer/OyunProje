@@ -37,6 +37,10 @@ public class SoldierBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> bd8471b6cb1fef7f7941949abdfea4a8c40d092c
 
         if (health > 0)
         {
@@ -125,6 +129,7 @@ public class SoldierBehaviour : MonoBehaviour
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
 
     }
+<<<<<<< HEAD
 
     public void RemoveHealth(float damage)
     {
@@ -140,4 +145,6 @@ public class SoldierBehaviour : MonoBehaviour
             act.Damage();
         }
     }
+=======
+>>>>>>> bd8471b6cb1fef7f7941949abdfea4a8c40d092c
 }

@@ -2,7 +2,10 @@
 using System.Collections;
 
 public class BulletScript : MonoBehaviour {
+<<<<<<< HEAD
     float damage = 20f;
+=======
+>>>>>>> bd8471b6cb1fef7f7941949abdfea4a8c40d092c
 
 	[Tooltip("Furthest distance bullet will look for target")]
 	public float maxDistance = 1000000;
@@ -30,9 +33,14 @@ public class BulletScript : MonoBehaviour {
 				}
 				if(hit.transform.tag == "Enemy"){
 					Instantiate(bloodEffect, hit.point, Quaternion.LookRotation(hit.normal));
+<<<<<<< HEAD
                     hit.transform.GetComponent<SoldierBehaviour>().RemoveHealth(damage);
                     //Destroy(gameObject);
                 }
+=======
+					//Destroy(gameObject);
+				}
+>>>>>>> bd8471b6cb1fef7f7941949abdfea4a8c40d092c
 			}		
 			//Destroy(gameObject);
 		}
