@@ -45,6 +45,12 @@ public class BulletScript : MonoBehaviour {
             Destroy(gameObject);
 
         }
+        if(other.gameObject.tag == "Barrel")
+        {
+            BarrelScript bs = other.gameObject.GetComponent<BarrelScript>();
+            bs.Boom();
+
+        }
 
     }
 }

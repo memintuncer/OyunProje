@@ -10,6 +10,8 @@ TagManager:
   - BulletSpawn
   - LevelPart
   - Dummie
+  - Barrel
+  - ParticleDamage
   layers:
   - Default
   - TransparentFX
