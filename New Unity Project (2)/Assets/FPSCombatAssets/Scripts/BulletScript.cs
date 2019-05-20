@@ -15,6 +15,7 @@ public class BulletScript : MonoBehaviour {
 	[Tooltip("Put Weapon layer and Player layer to ignore bullet raycast.")]
 	public LayerMask ignoreLayer;
     public float bulletDamageAmount = 1;
+    public float bulletSpeed = 1000f;
 
     /*
 	* Uppon bullet creation with this script attatched,

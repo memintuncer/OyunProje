@@ -293,7 +293,6 @@ public class GunScript : MonoBehaviour {
 	public GameObject muzzelSpawn;
 	private GameObject holdFlash;
 	private GameObject holdSmoke;
-    public float bullet_speed = 5.0f;
    
     
     /*
@@ -309,7 +308,8 @@ public class GunScript : MonoBehaviour {
                 GameObject temp_bullet;
                 temp_bullet = Instantiate(bullet, bulletSpawnPlace.transform.position, bulletSpawnPlace.transform.rotation);
                 Rigidbody bullet_rb = temp_bullet.GetComponent<Rigidbody>();
-                bullet_rb.AddForce(transform.forward * bullet_speed);
+                float bulletSpeed = temp_bullet.GetComponent<BulletScript>().bulletSpeed;
+                bullet_rb.AddForce(transform.forward * bulletSpeed);
             }
             else
             {
