@@ -5,10 +5,12 @@ using UnityEngine;
 public class BarrelScript : MonoBehaviour
 {
     SphereCollider collider;
+    MeshRenderer mr;
     void Start()
     {
         //Assigns the attached SphereCollider to myCollider
         collider = gameObject.GetComponent<SphereCollider>();
+        mr = gameObject.GetComponent<MeshRenderer>();
     }
 
     public void Boom()
@@ -21,16 +23,18 @@ public class BarrelScript : MonoBehaviour
             if (obj.GetComponent<Rigidbody>() != null)
                 //obj.GetComponent<Rigidbody>().AddExplosionForce(200, transform.position + Vector3.down, 10);
         collider.radius = 10;
-        StartCoroutine("wait");
+        mr.enabled = false;
+        Destroy(gameObject, 0.6f);
+        //StartCoroutine("wait");
         
     }
-    IEnumerator wait()
-    {
-        yield return new WaitForSeconds(0.6f);
-        Destroy(gameObject);
-    }
+    //IEnumerator wait()
+    //{
+    //    yield return new WaitForSeconds(0.6f);
+    //    Destroy(gameObject);
+    //}
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy")
         {
