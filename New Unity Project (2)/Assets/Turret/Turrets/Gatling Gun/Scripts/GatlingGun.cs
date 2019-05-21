@@ -172,6 +172,12 @@ public class GatlingGun : MonoBehaviour
         }
     }
 
+    public void DisableTurret() {
+
+        gameObject.GetComponent<SphereCollider>().radius = 0.05f;
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")

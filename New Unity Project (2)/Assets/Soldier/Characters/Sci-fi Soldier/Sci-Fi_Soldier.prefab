@@ -1724,9 +1724,7 @@ MonoBehaviour:
   detechImage: {fileID: 4382360849215204020}
   lostImage: {fileID: 6780828682705249704}
   lastKnownPosition: {x: 0, y: 0, z: 0}
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  waypoints: []
 --- !u!195 &4925133102670227117
 NavMeshAgent:
   m_ObjectHideFlags: 0

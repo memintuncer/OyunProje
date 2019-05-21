@@ -10,7 +10,7 @@ public class StartGame : MonoBehaviour
     public GameObject Camera;
     public GameObject StartPanel = null;
     private bool ispanel = false;
-    float timeleft;
+    public float timeleft;
     void Start()
     {
         StartCoroutine("StarttheGame");
@@ -22,14 +22,13 @@ public class StartGame : MonoBehaviour
 
         if (ispanel == true)
         {
-            if (Input.GetKey(KeyCode.F))
-            {
+           
 
                 girl.SetActive(false);
                 Camera.SetActive(false);
-                StartPanel.SetActive(false);
+                //StartPanel.SetActive(false);
                 player.SetActive(true);
-            }
+            
         }
 
 
@@ -40,8 +39,8 @@ public class StartGame : MonoBehaviour
     IEnumerator StarttheGame()
     {
         
-        yield return new WaitForSeconds(11.0f);
-        StartPanel.SetActive(true);
+        yield return new WaitForSeconds(timeleft);
+        //StartPanel.SetActive(true);
         ispanel = true;
 
         
