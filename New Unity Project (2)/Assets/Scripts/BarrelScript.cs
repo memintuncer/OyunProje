@@ -5,12 +5,24 @@ using UnityEngine;
 public class BarrelScript : MonoBehaviour
 {
     SphereCollider collider;
-    MeshRenderer mr;
+    MeshRenderer renderer;
+    MeshRenderer[] renderers;
     void Start()
     {
         //Assigns the attached SphereCollider to myCollider
+        
         collider = gameObject.GetComponent<SphereCollider>();
-        mr = gameObject.GetComponent<MeshRenderer>();
+        
+        renderer = gameObject.GetComponent<MeshRenderer>();
+        if(renderer == null)
+        {
+            renderers = gameObject.GetComponentsInChildren<MeshRenderer>();
+            
+        }
+        
+
+
+
     }
 
     public void Boom()
@@ -22,8 +34,19 @@ public class BarrelScript : MonoBehaviour
         foreach (var obj in overlap)
             if (obj.GetComponent<Rigidbody>() != null)
                 //obj.GetComponent<Rigidbody>().AddExplosionForce(200, transform.position + Vector3.down, 10);
-        collider.radius = 10;
-        mr.enabled = false;
+        collider.radius = 20;
+        
+        if (!renderer)
+        {
+            foreach (MeshRenderer mesh in renderers)
+            {
+                mesh.enabled = false;
+            }
+        }
+        else
+        {
+            renderer.enabled = false;
+        }
         Destroy(gameObject, 0.6f);
         //StartCoroutine("wait");
         
