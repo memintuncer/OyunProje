@@ -8,17 +8,15 @@ public class GunInventory : MonoBehaviour {
 
 	[Tooltip("Put Strings of weapon objects from Resources Folder.")]
 	public List<string> gunsIHave = new List<string>();
-    public GameObject machine;
-    public GameObject openPanel;
-    public GameObject weapon;
+    
 
-    /*
+	/*
 	 * Calling the method that will update the icons of our guns if we carry any upon start.
 	 * Also will spawn a weapon upon start.
 	 */
-    void Awake(){
+	void Awake(){
 
-		//to start with a gun
+		StartCoroutine ("SpawnWeaponUponStart");//to start with a gun
 
 		if (gunsIHave.Count == 0)
 			print ("No guns in the inventory");
@@ -28,16 +26,10 @@ public class GunInventory : MonoBehaviour {
 	*Waits some time then calls for a waepon spawn
 	*/
 	IEnumerator SpawnWeaponUponStart(){
-        machine.GetComponent<GiveWeaponScript>().pushed = false;
-        yield return new WaitForSeconds (0.5f);
-        
+		yield return new WaitForSeconds (0.5f);
         GameObject resource = (GameObject)Resources.Load(gunsIHave[0].ToString());
         currentGun = (GameObject)Instantiate(resource, transform.position, /*gameObject.transform.rotation*/Quaternion.identity);
-       
-
-
-
-    }
+	}
 
 	/* 
 	 * Calculation switchWeaponCoolDown so it does not allow us to change weapons millions of times per second,
@@ -45,14 +37,7 @@ public class GunInventory : MonoBehaviour {
 	 * overcomes 0.0f. 
 	 */
 	void Update(){
-        if(machine.GetComponent<GiveWeaponScript>().pushed == true)
-        {
-            StartCoroutine("SpawnWeaponUponStart");
-            weapon.SetActive(false);
-            openPanel.SetActive(false);
-            
-
-        }
+        
 	}
 
 
@@ -95,9 +80,4 @@ public class GunInventory : MonoBehaviour {
 	[Header("Sounds")]
 	[Tooltip("Sound of weapon changing.")]
 	public AudioSource weaponChanging;
-    public void GiveWeapon()
-    {
-        StartCoroutine ("SpawnWeaponUponStart");
-
-    }
 }

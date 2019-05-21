@@ -15,6 +15,7 @@ public class BulletScript : MonoBehaviour {
 	[Tooltip("Put Weapon layer and Player layer to ignore bullet raycast.")]
 	public LayerMask ignoreLayer;
     public float bulletDamageAmount = 1;
+    public float bulletSpeed = 1000f;
 
     /*
 	* Uppon bullet creation with this script attatched,
@@ -43,6 +44,12 @@ public class BulletScript : MonoBehaviour {
             Instantiate(bloodEffect, this.transform.position, other.transform.rotation);
             //Destroy the bullet
             Destroy(gameObject);
+
+        }
+        if(other.gameObject.tag == "Barrel")
+        {
+            BarrelScript bs = other.gameObject.GetComponent<BarrelScript>();
+            bs.Boom();
 
         }
 
