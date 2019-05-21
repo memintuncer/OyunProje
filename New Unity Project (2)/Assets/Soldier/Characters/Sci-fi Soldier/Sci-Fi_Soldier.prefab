@@ -1615,7 +1615,7 @@ Transform:
   m_GameObject: {fileID: 100096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.500002, y: 2.5, z: 2.500002}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 400094}
   - {fileID: 400092}
@@ -1724,7 +1724,9 @@ MonoBehaviour:
   detechImage: {fileID: 4382360849215204020}
   lostImage: {fileID: 6780828682705249704}
   lastKnownPosition: {x: 0, y: 0, z: 0}
-  waypoints: []
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!195 &4925133102670227117
 NavMeshAgent:
   m_ObjectHideFlags: 0

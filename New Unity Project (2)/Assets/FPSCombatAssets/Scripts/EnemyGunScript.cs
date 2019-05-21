@@ -6,7 +6,7 @@ public class EnemyGunScript : MonoBehaviour
 {
     public float cooldown = 3.0f;
     private float nextFireTime = 0.0f;
-
+    public float bullet_speed = 1000f;
     [Tooltip("Audio for shootingSound.")]
     public AudioSource shoot_sound_source;
     public GameObject bullet;
@@ -71,8 +71,7 @@ public class EnemyGunScript : MonoBehaviour
         GameObject temp_bullet;
         temp_bullet = Instantiate(bullet, bulletSpawnPlace.transform.position, bulletSpawnPlace.transform.rotation);
         Rigidbody bullet_rb = temp_bullet.GetComponent<Rigidbody>();
-        float bulletSpeed = temp_bullet.GetComponent<BulletScript>().bulletSpeed;
-        bullet_rb.AddForce(transform.forward * bulletSpeed);
+        bullet_rb.AddForce(transform.forward * bullet_speed);
 
         Instantiate(muzzelFlash[randomNumberForMuzzelFlash], muzzelSpawn.transform.position /*- muzzelPosition*/, muzzelSpawn.transform.rotation * Quaternion.Euler(0, 0, 90));
 
