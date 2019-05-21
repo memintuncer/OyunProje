@@ -50,6 +50,7 @@ public class BulletScript : MonoBehaviour {
         {
             BarrelScript bs = other.gameObject.GetComponent<BarrelScript>();
             bs.Boom();
+            Destroy(gameObject);
 
         }
 
