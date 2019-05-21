@@ -8,6 +8,7 @@ public class TimeManipulation : MonoBehaviour
     public float slowdownFactor = 0.05f;
     public float mouseSlowdown = 0.5f;
     public float slowdownLength = 2f;
+    public bool isRotating = false;
 
     // Update is called once per frame
     void Update()
@@ -19,7 +20,7 @@ public class TimeManipulation : MonoBehaviour
         //Debug.Log("unscaledDeltaTime");
         //Debug.Log(Time.unscaledDeltaTime);
 
-        if (Input.anyKey == false)
+        if (Input.anyKey == false )
         {
             Time.timeScale = slowdownFactor;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;

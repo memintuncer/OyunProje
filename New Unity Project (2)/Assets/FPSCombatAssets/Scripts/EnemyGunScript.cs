@@ -49,7 +49,7 @@ public class EnemyGunScript : MonoBehaviour
     void Shooting()
     {
         //If spotted the player and has no cooldown
-        print(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        //print(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
 
         if (bhvr.canFire && Time.time > nextFireTime && animator.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 > 0.98)         {
             

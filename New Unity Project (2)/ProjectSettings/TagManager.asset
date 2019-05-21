@@ -12,6 +12,7 @@ TagManager:
   - Dummie
   - Barrel
   - ParticleDamage
+  - TimeController
   layers:
   - Default
   - TransparentFX

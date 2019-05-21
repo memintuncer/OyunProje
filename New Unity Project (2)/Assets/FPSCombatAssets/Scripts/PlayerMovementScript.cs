@@ -14,12 +14,17 @@ public class PlayerMovementScript : MonoBehaviour {
 	[Tooltip("Position of the camera inside the player")]
 	[HideInInspector]public Vector3 cameraPosition;
     HealthScript health;
-
-	/*
+    GameObject time;
+    private void Start()
+    {
+        oldEulerAngles = transform.rotation.eulerAngles;
+        time = GameObject.FindGameObjectWithTag("TimeController");
+    }
+    /*
 	 * Getting the Players rigidbody component.
 	 * And grabbing the mainCamera from Players child transform.
 	 */
-	void Awake(){
+    void Awake(){
 		rb = GetComponent<Rigidbody>();
 		cameraMain = transform.Find("Main Camera").transform;
 		ignoreLayer = 1 << LayerMask.NameToLayer ("Player");
@@ -28,13 +33,24 @@ public class PlayerMovementScript : MonoBehaviour {
 	}
 	private Vector3 slowdownV;
 	private Vector2 horizontalMovement;
-	/*
+    Vector3 oldEulerAngles;
+    /*
 	* Raycasting for meele attacks and input movement handling here.
 	*/
-	void FixedUpdate(){
+    void FixedUpdate(){
 
-
-		PlayerMovementLogic ();
+        if (oldEulerAngles == transform.rotation.eulerAngles)
+        {
+            //NO ROTATION
+            time.GetComponent<TimeManipulation>().isRotating = false;
+        }
+        else
+        {
+            oldEulerAngles = transform.rotation.eulerAngles;
+            //DO WHATEVER YOU WANT
+            time.GetComponent<TimeManipulation>().isRotating = true;
+        }
+        PlayerMovementLogic ();
 	}
 	/*
 	* Accordingly to input adds force and if magnitude is bigger it will clamp it.
