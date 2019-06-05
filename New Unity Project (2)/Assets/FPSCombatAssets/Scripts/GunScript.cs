@@ -191,14 +191,15 @@ public class GunScript : MonoBehaviour {
 		rotationLastY= mls.currentYRotation;
 		rotationLastX= mls.currentCameraXRotation;
 
-		angularVelocityY = Mathf.Lerp (angularVelocityY, rotationDeltaY, Time.deltaTime * 5);
-		angularVelocityX = Mathf.Lerp (angularVelocityX, rotationDeltaX, Time.deltaTime * 5);
+		angularVelocityY = Mathf.Lerp (angularVelocityY, rotationDeltaY, Time.unscaledDeltaTime * 5);
+		angularVelocityX = Mathf.Lerp (angularVelocityX, rotationDeltaX, Time.unscaledDeltaTime * 5);
 
 		gunWeightX = Mathf.SmoothDamp (gunWeightX, mls.currentCameraXRotation, ref velocityGunRotate.x, rotationLagTime);
 		gunWeightY = Mathf.SmoothDamp (gunWeightY, mls.currentYRotation, ref velocityGunRotate.y, rotationLagTime);
 
-		transform.rotation = Quaternion.Euler (gunWeightX + (angularVelocityX*forwardRotationAmount.x), gunWeightY + (angularVelocityY*forwardRotationAmount.y), 0);
-	}
+        transform.rotation = Quaternion.Euler (gunWeightX + (angularVelocityX*forwardRotationAmount.x) , gunWeightY + (angularVelocityY*forwardRotationAmount.y), 0);
+       
+    }
 
 	private float currentRecoilZPos;
 	private float currentRecoilXPos;

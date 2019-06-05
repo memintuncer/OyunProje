@@ -38,18 +38,7 @@ public class PlayerMovementScript : MonoBehaviour {
 	* Raycasting for meele attacks and input movement handling here.
 	*/
     void FixedUpdate(){
-
-        if (oldEulerAngles == transform.rotation.eulerAngles)
-        {
-            //NO ROTATION
-            time.GetComponent<TimeManipulation>().isRotating = false;
-        }
-        else
-        {
-            oldEulerAngles = transform.rotation.eulerAngles;
-            //DO WHATEVER YOU WANT
-            time.GetComponent<TimeManipulation>().isRotating = true;
-        }
+        
         PlayerMovementLogic ();
 	}
 	/*

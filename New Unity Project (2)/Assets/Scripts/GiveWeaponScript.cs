@@ -6,12 +6,12 @@ public class GiveWeaponScript : MonoBehaviour
 {
     
     public bool pushed=false;
-    public GameObject Tb;
-    public GameObject player;
+    //public GameObject Tb;
+
     public GameObject openPanel = null;
-    public GameObject weapon;
+    //public GameObject weapon;
     private bool ispanel = false;
-    private GunInventory gi;
+    //private GunInventory gi;
 
    
     void  Start()

@@ -11,6 +11,13 @@ public class GunInventory : MonoBehaviour {
     public GameObject machine;
     public GameObject openPanel;
     public GameObject weapon;
+    private GameObject HUD;
+
+    private void Start()
+    {
+        HUD = GameObject.FindGameObjectWithTag("HUD");
+        HUD.SetActive(false);
+    }
 
     /*
 	 * Calling the method that will update the icons of our guns if we carry any upon start.
@@ -18,9 +25,13 @@ public class GunInventory : MonoBehaviour {
 	 */
     void Awake(){
 
-		//to start with a gun
+        //to start with a gun
+        if (machine == null)
+        {
+            GiveWeapon();
 
-		if (gunsIHave.Count == 0)
+        }
+        if (gunsIHave.Count == 0)
 			print ("No guns in the inventory");
 	}
 
@@ -28,26 +39,33 @@ public class GunInventory : MonoBehaviour {
 	*Waits some time then calls for a waepon spawn
 	*/
 	IEnumerator SpawnWeaponUponStart(){
-        machine.GetComponent<GiveWeaponScript>().pushed = false;
+        if(machine)
+        {
+            machine.GetComponent<GiveWeaponScript>().pushed = false;
+        }
         yield return new WaitForSeconds (0.5f);
         
         GameObject resource = (GameObject)Resources.Load(gunsIHave[0].ToString());
         currentGun = (GameObject)Instantiate(resource, transform.position, /*gameObject.transform.rotation*/Quaternion.identity);
-       
+        HUD.SetActive(true);
+
+
 
 
 
     }
 
-	/* 
+    /* 
 	 * Calculation switchWeaponCoolDown so it does not allow us to change weapons millions of times per second,
 	 * and at some point we will change the switchWeaponCoolDown to a negative value so we have to wait until it
 	 * overcomes 0.0f. 
 	 */
-	void Update(){
-        if(machine.GetComponent<GiveWeaponScript>().pushed == true)
+    void Update(){
+        
+
+        if (machine && machine.GetComponent<GiveWeaponScript>().pushed == true)
         {
-            StartCoroutine("SpawnWeaponUponStart");
+            GiveWeapon();
             weapon.SetActive(false);
             openPanel.SetActive(false);
             

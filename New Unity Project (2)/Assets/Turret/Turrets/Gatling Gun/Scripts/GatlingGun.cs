@@ -34,12 +34,17 @@ public class GatlingGun : MonoBehaviour
     public float cooldown = 1.5f;
     private float nextFireTime = 0.0f;
 
+    Animation deathAnim;
+
     void Start()
     {
         // Set the firing range distance
         muzzelFlash.Stop();
         bulletShell.Stop();
         gameObject.GetComponent<SphereCollider>().radius = firingRange * transform.lossyScale.y;
+        deathAnim = GetComponent<Animation>();
+
+
     }
 
 
@@ -48,7 +53,6 @@ public class GatlingGun : MonoBehaviour
         if (inRange)
         {
             IsPlayerSpotted();
-
         }
 
         else
@@ -150,7 +154,6 @@ public class GatlingGun : MonoBehaviour
             float bulletSpeed = temp_bullet.GetComponent<BulletScript>().bulletSpeed;
             bullet_rb.AddForce(go_baseRotation.transform.forward * bulletSpeed);
 
-
            
         }
         else
@@ -164,6 +167,7 @@ public class GatlingGun : MonoBehaviour
         // slow down barrel rotation and stop
         currentRotationSpeed = Mathf.Lerp(currentRotationSpeed, 0, 10 * Time.deltaTime);
 
+
         // stop the particle system
         if (muzzelFlash.isPlaying || bulletShell.isPlaying)
         {
@@ -175,7 +179,11 @@ public class GatlingGun : MonoBehaviour
     public void DisableTurret() {
 
         gameObject.GetComponent<SphereCollider>().radius = 0.05f;
-
+        if (!deathAnim.isPlaying)
+        {
+            deathAnim.Play();
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
