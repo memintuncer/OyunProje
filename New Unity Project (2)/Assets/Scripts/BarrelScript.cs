@@ -64,5 +64,10 @@ public class BarrelScript : MonoBehaviour
             HealthScript h = collision.gameObject.GetComponent<HealthScript>();
             h.Damage(1);
         }
+        else if(collision.gameObject.tag == "Barrel")
+        {
+            BarrelScript barrel = collision.gameObject.GetComponent<BarrelScript>();
+            barrel.Boom();
+        }
     }
 }
