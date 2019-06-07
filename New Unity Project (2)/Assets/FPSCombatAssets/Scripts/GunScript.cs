@@ -5,8 +5,9 @@ using System.Collections;
 public class GunScript : MonoBehaviour {
 	[HideInInspector]
 	public MouseLookScript mls;
+    private AudioSource fire;
 
-	[Header("Player movement properties")]
+    [Header("Player movement properties")]
 	[Tooltip("Speed is determined via gun because not every gun has same properties or weights so you MUST set up your speeds here")]
 	public int walkingSpeed = 3;
 	[Tooltip("Speed is determined via gun because not every gun has same properties or weights so you MUST set up your speeds here")]
@@ -35,7 +36,7 @@ public class GunScript : MonoBehaviour {
 		secondCamera = GameObject.FindGameObjectWithTag("SecondCamera").GetComponent<Camera>();
 		cameraComponent = mainCamera.GetComponent<Camera>();
 		pmS = player.GetComponent<PlayerMovementScript>();
-        
+        fire = player.GetComponent<AudioSource>();
 		//hitMarker = transform.Find ("hitMarkerSound").GetComponent<AudioSource> ();
         
 
@@ -230,6 +231,8 @@ public class GunScript : MonoBehaviour {
 			ShootMethod ();
             nextFireTime = Time.time + cooldown;
         }
+
+
 		
 	}
 
@@ -311,6 +314,7 @@ public class GunScript : MonoBehaviour {
                 Rigidbody bullet_rb = temp_bullet.GetComponent<Rigidbody>();
                 float bulletSpeed = temp_bullet.GetComponent<BulletScript>().bulletSpeed;
                 bullet_rb.AddForce(transform.forward * bulletSpeed);
+                fire.Play();
             }
             else
             {

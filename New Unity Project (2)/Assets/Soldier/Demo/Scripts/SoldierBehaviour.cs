@@ -9,15 +9,17 @@ using UnityEngine.AI;
 public class SoldierBehaviour : MonoBehaviour
 {
     Transform target;
+    public GameObject music;
     public Transform rig;
     public Transform head;
     public float fieldOfViewAngle = 150.0f;
+    public AudioSource BattleMusic;
 
 
     //public float rotationSpeed;
     // Distance the soldier can aim and fire from
     private float firingRange;
-
+    public bool ranonce = false;
 
     // Used to start and stop the firing
     [HideInInspector]public bool canFire = false;
@@ -35,6 +37,7 @@ public class SoldierBehaviour : MonoBehaviour
     public GameObject[] waypoints;
     Animator animator;
     GameObject player;
+    private int playerSpot=0;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +52,7 @@ public class SoldierBehaviour : MonoBehaviour
         
         detechImage.enabled = false;
         lostImage.enabled = false;
+        BattleMusic= music.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -93,6 +97,8 @@ public class SoldierBehaviour : MonoBehaviour
                 //Did the ray hit the player
                 if (hit.collider.gameObject == player)
                 {
+                   
+                    
                     //Not blocked by any other object, soldier can see player
                     //Stop the agent
                     mNavMeshAgent.velocity = Vector3.zero;
@@ -108,15 +114,29 @@ public class SoldierBehaviour : MonoBehaviour
                     lastKnownPosition = hit.transform.position;
 
                     //Aim and fire
+                    if (player.GetComponent<PlayerMovementScript>().isSpotted != 1)
+                    {
+                        player.GetComponent<PlayerMovementScript>().isSpotted = 1;
+                        
+                    }
+                    playingAlertMusic();
+                    //BattleMusic.Play();
+                    //music.SetActive(true);
                     act.Aiming();
 
                 }
                 else
                 {
-                    //If lost player run towards last known position
-                    playerLost = true;
-                   
                     
+                    playerLost = true;
+                    /*if(music.GetComponent<AudioSource>().isPlaying == true)
+                    {
+                        music.GetComponent<AudioSource>().Stop();
+                    }*/
+                    
+                    player.GetComponent<PlayerMovementScript>().isSpotted = 0;
+                   
+
                 }
 
             }
@@ -125,6 +145,26 @@ public class SoldierBehaviour : MonoBehaviour
         
 
     }
-    
-    
+
+
+    IEnumerator StopMusic()
+    {
+
+        yield return new WaitForSeconds(3f);
+
+        music.SetActive(false);
+        //player.SetActive(true);
+
+
+
+
+    }
+
+    void playingAlertMusic()
+    {
+        if (ranonce == true&& music.GetComponent<AudioSource>().isPlaying==false)
+            music.GetComponent<AudioSource>().Play();
+            ranonce = false;
+    }
+
 }
