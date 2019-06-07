@@ -114,6 +114,8 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 768
+  bulletDamageAmount: 1
+  bulletSpeed: 1000
 --- !u!54 &3064529545109516971
 Rigidbody:
   m_ObjectHideFlags: 0

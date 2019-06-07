@@ -4,7 +4,8 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovementScript : MonoBehaviour {
 	Rigidbody rb;
-
+    public GameObject PauseMenu;
+    public float isSpotted = 0;
 	[Tooltip("Current players speed")]
 	public float currentSpeed;
 	[Tooltip("Assign players camera here")]
@@ -106,6 +107,7 @@ public class PlayerMovementScript : MonoBehaviour {
 
             WalkingSound();
         }
+        
         else
         {
             //Debug.Log("Game over");
