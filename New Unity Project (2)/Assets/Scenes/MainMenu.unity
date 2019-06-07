@@ -128,7 +128,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d64455b0b72cbc847b29a5d19fd51255, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 40ad187068acfca44a9bf5d80fa111ee, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -550,16 +550,16 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1079458419}
-    - target: {fileID: 418058060148983578, guid: 379aef2929c9da845b8f55c73acddb13,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2124603594}
     - target: {fileID: 418058059817082332, guid: 379aef2929c9da845b8f55c73acddb13,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1111030989}
+    - target: {fileID: 418058060148983578, guid: 379aef2929c9da845b8f55c73acddb13,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2124603594}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 379aef2929c9da845b8f55c73acddb13, type: 3}
 --- !u!1001 &2809595127711928637

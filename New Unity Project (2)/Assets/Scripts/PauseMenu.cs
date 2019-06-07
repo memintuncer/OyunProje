@@ -6,6 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GamePaused = false;
     public GameObject PauseUI;
+    public GameObject TimeController;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,10 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         PauseUI.SetActive(false);
+        if (TimeController.gameObject.activeInHierarchy != true)
+        {
+            TimeController.SetActive(true);
+        }
         Time.timeScale = 1f;
         GamePaused = false;
         
@@ -44,7 +49,12 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         PauseUI.SetActive(true);
-        Time.timeScale = 0f;
+        if (TimeController.gameObject.activeInHierarchy != false)
+        {
+            TimeController.SetActive(false);
+        }
+        
+        //Time.timeScale = 0f;
         GamePaused = true;
         //Cursor.visible = true;
     }
@@ -56,6 +66,6 @@ public class PauseMenu : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
