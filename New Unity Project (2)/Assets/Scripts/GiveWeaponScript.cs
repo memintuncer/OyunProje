@@ -6,6 +6,7 @@ public class GiveWeaponScript : MonoBehaviour
 {
     
     public bool pushed=false;
+    public GameObject weapon;
     //public GameObject Tb;
 
     public GameObject openPanel = null;
@@ -27,6 +28,10 @@ public class GiveWeaponScript : MonoBehaviour
             if (Input.GetKey(KeyCode.F))
             {
                 pushed = true;
+                if (weapon.activeInHierarchy == false)
+                {
+                    weapon.SetActive(true);
+                }
                 
   
             }

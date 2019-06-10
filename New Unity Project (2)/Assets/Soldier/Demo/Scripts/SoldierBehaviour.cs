@@ -13,7 +13,7 @@ public class SoldierBehaviour : MonoBehaviour
     public Transform rig;
     public Transform head;
     public float fieldOfViewAngle = 150.0f;
-    public AudioSource BattleMusic;
+    AudioSource BattleMusic;
 
 
     //public float rotationSpeed;
@@ -114,14 +114,13 @@ public class SoldierBehaviour : MonoBehaviour
                     lastKnownPosition = hit.transform.position;
 
                     //Aim and fire
-                    if (player.GetComponent<PlayerMovementScript>().isSpotted != 1)
+                    /*if (player.GetComponent<PlayerMovementScript>().isSpotted != 1)
                     {
                         player.GetComponent<PlayerMovementScript>().isSpotted = 1;
                         
-                    }
-                    playingAlertMusic();
-                    //BattleMusic.Play();
-                    //music.SetActive(true);
+                    }*/
+                    //playingAlertMusic();
+                   
                     act.Aiming();
 
                 }
@@ -134,7 +133,7 @@ public class SoldierBehaviour : MonoBehaviour
                         music.GetComponent<AudioSource>().Stop();
                     }*/
                     
-                    player.GetComponent<PlayerMovementScript>().isSpotted = 0;
+                    //player.GetComponent<PlayerMovementScript>().isSpotted = 0;
                    
 
                 }

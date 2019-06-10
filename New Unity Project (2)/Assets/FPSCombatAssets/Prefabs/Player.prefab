@@ -334,6 +334,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97308ddfdff1d496cb759a41c819b13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PauseMenu: {fileID: 0}
+  isSpotted: 0
   currentSpeed: 5
   cameraMain: {fileID: 0}
   jumpForce: 15000
@@ -376,7 +378,6 @@ MonoBehaviour:
   currentCameraXRotation: 0
   topAngleView: 60
   bottomAngleView: -45
-  weapon: {fileID: 0}
   showFps: 1
 --- !u!114 &11414154
 MonoBehaviour:
@@ -393,6 +394,9 @@ MonoBehaviour:
   currentGun: {fileID: 0}
   gunsIHave:
   - SciFiPistol_Gun
+  machine: {fileID: 0}
+  openPanel: {fileID: 0}
+  weapon: {fileID: 0}
   weaponChanging: {fileID: 82784591334345954}
 --- !u!1 &196378
 GameObject:

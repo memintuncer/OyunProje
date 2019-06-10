@@ -65,7 +65,7 @@ public class GunScript : MonoBehaviour {
 	private Vector2 gunFollowTimeVelocity;
     public float cooldown = 3.0f;
     private float nextFireTime = 0.0f;
-
+    public GameObject Menu;
     /*
 	Update loop calling for methods that are descriped below where they are initiated.
 	*/
@@ -77,6 +77,9 @@ public class GunScript : MonoBehaviour {
 
 		PositionGun();
         
+        
+       //if(Menu.gameObject.GetComponent<PauseMenu>().Ga)
+
         Shooting();
         
 
