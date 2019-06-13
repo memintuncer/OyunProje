@@ -9,7 +9,7 @@ using UnityEngine.AI;
 public class SoldierBehaviour : MonoBehaviour
 {
     Transform target;
-    public GameObject music;
+    //public GameObject music;
     public Transform rig;
     public Transform head;
     public float fieldOfViewAngle = 150.0f;
@@ -52,7 +52,7 @@ public class SoldierBehaviour : MonoBehaviour
         
         detechImage.enabled = false;
         lostImage.enabled = false;
-        BattleMusic= music.GetComponent<AudioSource>();
+        //BattleMusic= music.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -146,7 +146,7 @@ public class SoldierBehaviour : MonoBehaviour
     }
 
 
-    IEnumerator StopMusic()
+   /* IEnumerator StopMusic()
     {
 
         yield return new WaitForSeconds(3f);
@@ -165,5 +165,5 @@ public class SoldierBehaviour : MonoBehaviour
             music.GetComponent<AudioSource>().Play();
             ranonce = false;
     }
-
+    */
 }
