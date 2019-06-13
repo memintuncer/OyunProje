@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 11478776}
   - component: {fileID: 11414154}
   m_Layer: 10
-  m_Name: Player
+  m_Name: EasyFPS Player
   m_TagString: Player
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -334,7 +334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97308ddfdff1d496cb759a41c819b13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 0}
   isSpotted: 0
   currentSpeed: 5
   cameraMain: {fileID: 0}

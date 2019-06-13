@@ -333,7 +333,7 @@ public class GunScript : MonoBehaviour {
             RecoilMath();
                 
 			bulletsInTheGun -= 1;
-			}
+		}
 				
 	}
 
