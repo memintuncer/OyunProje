@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TBScenes/MainMenu.unity
     guid: fa0913115ac1d4fba8b9d10280f4b04d
   - enabled: 1
+    path: Assets/Scenes/TBScenes/LoadingScreen/LoadingScreen.unity
+    guid: 2b906914d6604c940ae948116f862f43
+  - enabled: 1
     path: Assets/Scenes/TBScenes/Level1.unity
     guid: cbcca85a6cc93ad43b8fbccbc983ab1a
   - enabled: 1
