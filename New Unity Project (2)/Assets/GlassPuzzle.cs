@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GlassPuzzle : MonoBehaviour
 {
     public GameObject buttonPanel;
+    public TextMeshProUGUI textMesh;
     public GameObject bino;
     
     public bool isTaken = false;
@@ -20,7 +22,7 @@ public class GlassPuzzle : MonoBehaviour
     {
         if (here)
         {
-            if (Input.GetKeyDown(KeyCode.F)){
+            if (Input.GetKeyDown(KeyCode.F)&& textMesh.text == "Take Glasses"){
                 isTaken = true;
                 if (bino != null)
                 {
@@ -34,11 +36,12 @@ public class GlassPuzzle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && isTaken==false)
         {
-
+            textMesh.text = "Take Glasses";
             here = true;
             buttonPanel.SetActive(true);
+            
 
         }
     }

@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class KeyPadScript : MonoBehaviour
 {
     public GameObject KeyPadGUI;
     public GameObject PressGUI;
     public GameObject player;
     public GameObject TimeCont;
+    public TextMeshProUGUI textMesh;
     
     public bool puzzle = false;
     // Start is called before the first frame update
@@ -45,6 +46,7 @@ public class KeyPadScript : MonoBehaviour
         if (other.gameObject.tag == "Player"&& KeyPadGUI.activeInHierarchy != true) { 
 }
         {
+            textMesh.text = "Enter Password";
             PressGUI.SetActive(true);
             puzzle = true;
             //Cursor.visible = true;
