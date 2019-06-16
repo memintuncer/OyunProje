@@ -55,7 +55,8 @@ public class PlayerScript : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab);
             bullet.transform.position = bulletspawn.position;
             Vector3 rotation = bullet.transform.rotation.eulerAngles;
-            bullet.transform.rotation = Quaternion.Euler(rotation.x, bulletspawn.transform.eulerAngles.y, rotation.z);
+            //bullet.transform.rotation = Quaternion.Euler(rotation.x, bulletspawn.transform.eulerAngles.y, rotation.z);
+            bullet.transform.rotation = bulletspawn.transform.rotation;
             bullet.GetComponent<Rigidbody>().AddForce(bulletspawn.forward * bulletSpeed, ForceMode.Impulse);
 
             Weapon.GetComponent<AudioSource>().Play();
