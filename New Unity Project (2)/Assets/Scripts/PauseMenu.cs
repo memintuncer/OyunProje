@@ -103,6 +103,7 @@ public class PauseMenu : MonoBehaviour
         }
 
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex- 1);
+        StaticLevelInfo.NextSceneToLoad = 0;
+        SceneManager.LoadScene(1);
     }
 }
