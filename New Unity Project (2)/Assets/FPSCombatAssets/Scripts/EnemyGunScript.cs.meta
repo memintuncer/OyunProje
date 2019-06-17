@@ -3,7 +3,11 @@ guid: 62dc45602caa9554fa815a0e86dce9de
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - shoot_sound_source: {instanceID: 0}
+  - bullet: {fileID: 128836, guid: c9e619a669d974fd28b5c89e43f2bce2, type: 3}
+  - bulletSpawnPlace: {instanceID: 0}
+  - muzzelSpawn: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

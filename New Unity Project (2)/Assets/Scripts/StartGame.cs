@@ -12,7 +12,7 @@ public class StartGame : MonoBehaviour
     public float timeleft;
     public GameObject TimeMan;
     Coroutine coroutine;
-    public GameObject crosshair;
+    //public GameObject crosshair;
     void Start()
     {
        coroutine = StartCoroutine("StarttheGame");
@@ -30,7 +30,7 @@ public class StartGame : MonoBehaviour
             Camera.SetActive(false);
             player.SetActive(true);
             TimeMan.SetActive(true);
-            crosshair.SetActive(true);
+            //crosshair.SetActive(true);
             }
         }
 
@@ -47,7 +47,7 @@ public class StartGame : MonoBehaviour
         Camera.SetActive(false);
         player.SetActive(true);
         TimeMan.SetActive(true);
-        crosshair.SetActive(true);
+        //crosshair.SetActive(true);
 
 
 

@@ -31,10 +31,10 @@ public class BulletScript : MonoBehaviour {
 
         if (other.transform.tag == "LevelPart" || other.transform.tag == "Crystal")
         {
-        //    Vector3 pos =new Vector3(this.transform.position.x + floatInfrontOfWall, this.transform.position.y, this.transform.position.z);
-        //    Instantiate(decalHitWall, pos, /*?*/Quaternion.LookRotation(other.transform.forward));
+            Vector3 pos =new Vector3(this.transform.position.x + floatInfrontOfWall, this.transform.position.y, this.transform.position.z);
+            //    Instantiate(decalHitWall, pos, /*?*/Quaternion.LookRotation(other.transform.forward));
             //Destroy the bullet
-            
+            Destroy(gameObject);
         }
         else if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy")
         {
@@ -42,6 +42,7 @@ public class BulletScript : MonoBehaviour {
             HealthScript h = other.gameObject.GetComponent<HealthScript>();
             h.Damage(bulletDamageAmount);
             Instantiate(bloodEffect, this.transform.position, other.transform.rotation);
+            Destroy(gameObject);
             //Destroy the bullet
 
         }
@@ -49,10 +50,11 @@ public class BulletScript : MonoBehaviour {
         {
             BarrelScript bs = other.gameObject.GetComponent<BarrelScript>();
             bs.Boom();
+            Destroy(gameObject);
 
         }
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
 
     }
 }
