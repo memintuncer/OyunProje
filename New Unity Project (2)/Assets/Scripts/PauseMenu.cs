@@ -21,7 +21,6 @@ public class PauseMenu : MonoBehaviour
         playerCanvases = player.transform.GetChild(1).gameObject;
         PauseUI = transform.GetChild(0).gameObject;
         GamePaused = false;
-        
     }
 
     // Update is called once per frame

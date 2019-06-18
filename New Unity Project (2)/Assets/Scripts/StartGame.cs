@@ -17,7 +17,7 @@ public class StartGame : MonoBehaviour
     {
         girl.SetActive(true);
         Camera.SetActive(true);
-        player.SetActive(false);
+        //player.transform.GetChild(0).gameObject.SetActive(false);
         TimeMan.SetActive(false);
         coroutine = StartCoroutine("StarttheGame");
     }
@@ -32,7 +32,7 @@ public class StartGame : MonoBehaviour
             StopCoroutine(coroutine);
             girl.SetActive(false);
             Camera.SetActive(false);
-            player.SetActive(true);
+            //player.SetActive(true);
             TimeMan.SetActive(true);
             //crosshair.SetActive(true);
             }
@@ -49,7 +49,9 @@ public class StartGame : MonoBehaviour
 
         girl.SetActive(false);
         Camera.SetActive(false);
-        player.SetActive(true);
+        player.transform.GetChild(0).gameObject.SetActive(true);
+
+        //player.SetActive(true);
         TimeMan.SetActive(true);
         //crosshair.SetActive(true);
 
