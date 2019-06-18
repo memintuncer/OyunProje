@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-
-public class PlayerScript : MonoBehaviour
+public class PlayerScriptLevel1 : MonoBehaviour
 {
+    // Start is called before the first frame update
     public GameObject Weapon;
     public GameObject bulletPrefab;
     public Transform bulletspawn;
@@ -33,12 +33,12 @@ public class PlayerScript : MonoBehaviour
         HUD = GameObject.FindGameObjectWithTag("HUD");
 
         HUD_bullets = HUD.GetComponent<TextMesh>();
-        //Weapon.SetActive(false);
+        Weapon.SetActive(false);
         HUD.SetActive(false);
         deathImage = GameObject.FindGameObjectWithTag("DeathImage").gameObject.GetComponent<Image>();
 
     }
-    
+
 
     // Update is called once per frame
     void Update()
@@ -125,6 +125,5 @@ public class PlayerScript : MonoBehaviour
         StaticLevelInfo.NextSceneToLoad = 2;
         SceneManager.LoadScene(1);
     }
-
 
 }

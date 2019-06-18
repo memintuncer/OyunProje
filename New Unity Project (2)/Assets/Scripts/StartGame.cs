@@ -15,7 +15,11 @@ public class StartGame : MonoBehaviour
     //public GameObject crosshair;
     void Start()
     {
-       coroutine = StartCoroutine("StarttheGame");
+        girl.SetActive(true);
+        Camera.SetActive(true);
+        player.SetActive(false);
+        TimeMan.SetActive(false);
+        coroutine = StartCoroutine("StarttheGame");
     }
 
     // Update is called once per frame
