@@ -17,9 +17,10 @@ public class LoadingScript : MonoBehaviour
         //Create async operation
         //That operation will load the next scene in the background
         AsyncOperation nextScene = SceneManager.LoadSceneAsync(StaticLevelInfo.NextSceneToLoad);
+        Debug.Log(StaticLevelInfo.NextSceneToLoad);
 
-        
-        while(!nextScene.isDone)
+
+        while (!nextScene.isDone)
         {
             //If we had a loading bar showing the percentage
             //We would want to have it here
