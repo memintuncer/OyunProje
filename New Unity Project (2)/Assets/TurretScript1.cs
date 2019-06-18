@@ -1,20 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 
-public class StopTurret : MonoBehaviour
+
+public class TurretScript1 : MonoBehaviour
 {
+    // Start is called before the first frame update
     public GameObject Turret;
     public GameObject openPanel = null;
-    public Text textMesh;
-    public bool isDisabled=false;
+    public Text hint;
+    public bool isDisabled = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -22,20 +23,20 @@ public class StopTurret : MonoBehaviour
     {
         if (IsOpenPanelActive)
         {
-            if (Input.GetKey(KeyCode.F)&& textMesh.text == "Stop Turret")
+            if (Input.GetKey(KeyCode.F) && hint.text == "Stop Turret")
             {
                 isDisabled = true;
                 Turret.GetComponent<GatlingGun>().DisableTurret();
-                
+
             }
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player"&& isDisabled==false)
+        if (other.tag == "Player" && isDisabled == false)
         {
-            textMesh.text = "Stop Turret";
+            hint.text = "Stop Turret";
             openPanel.SetActive(true);
 
 
