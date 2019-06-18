@@ -3277,6 +3277,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1551282606980891173, guid: 0f55daf400ce3ff46bcbeabf859b397c,
+        type: 3}
+      propertyPath: healthPoints
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f55daf400ce3ff46bcbeabf859b397c, type: 3}
 --- !u!1001 &249021329
@@ -5309,7 +5314,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2112593480}
     - target: {fileID: 3268983838056750643, guid: 1178f4f7583d5cf469c83e96f0028837,
         type: 3}
       propertyPath: PressGUI
@@ -16339,7 +16344,7 @@ MonoBehaviour:
   textMesh: {fileID: 2034543896}
   score: 0
   puzzleGUI: {fileID: 536859827}
-  player: {fileID: 0}
+  player: {fileID: 2112593480}
   KeyCollider: {fileID: 817869576}
   password: 
   TimeCont: {fileID: 499298406}
@@ -16732,7 +16737,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 247317187}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2112593480}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
@@ -25087,6 +25092,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86543aee3558f1142b9a1564b4cb7c89, type: 3}
+--- !u!1 &2112593480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1551282606980891174, guid: 0f55daf400ce3ff46bcbeabf859b397c,
+    type: 3}
+  m_PrefabInstance: {fileID: 247317187}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2117458421
 PrefabInstance:
   m_ObjectHideFlags: 0

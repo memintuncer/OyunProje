@@ -8,7 +8,7 @@ public class StopTurret : MonoBehaviour
 {
     public GameObject Turret;
     public GameObject openPanel = null;
-    public Text textMesh;
+    public TextMeshProUGUI textMesh;
     public bool isDisabled=false;
 
     // Start is called before the first frame update

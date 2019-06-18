@@ -20,9 +20,9 @@ public class MechDoorScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //hs = GameObject.FindGameObjectWithTag("Enemy").GetComponent<HealthScript>();
-        //&& hs.isDead
-        if (other.gameObject.tag == "Player" )
+        hs = GameObject.FindGameObjectWithTag("Enemy").GetComponent<HealthScript>();
+        
+        if (other.gameObject.tag == "Player" && hs.isDead)
         {
             animator.SetBool("character_nearby", true);
         }
