@@ -7,11 +7,14 @@ public class BarrelScript : MonoBehaviour
     SphereCollider collider;
     MeshRenderer renderer;
     MeshRenderer[] renderers;
+   private AudioSource boomAudio;
+
     void Start()
     {
         //Assigns the attached SphereCollider to myCollider
         
         collider = gameObject.GetComponent<SphereCollider>();
+        boomAudio = GetComponent<AudioSource>();
         
         renderer = gameObject.GetComponent<MeshRenderer>();
         if(renderer == null)
@@ -27,6 +30,7 @@ public class BarrelScript : MonoBehaviour
 
     public void Boom()
     {
+        
         var ps = GetComponentsInChildren<ParticleSystem>();
         foreach (var p in ps) 
             p.Play();
@@ -47,6 +51,7 @@ public class BarrelScript : MonoBehaviour
         {
             renderer.enabled = false;
         }
+        boomAudio.Play();
         Destroy(gameObject, 0.6f);
         //StartCoroutine("wait");
         
