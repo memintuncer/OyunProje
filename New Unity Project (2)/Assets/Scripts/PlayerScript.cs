@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class PlayerScript : MonoBehaviour
 {
@@ -8,42 +11,69 @@ public class PlayerScript : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform bulletspawn;
     public float bulletSpeed = 10f;
-    public float lifetime = 5f;
+    //public float lifetime = 5f;
     private float nextFireTime = 0.0f;
     private GameObject HUD;
     private TextMesh HUD_bullets;
+    private Image deathImage;
 
     [Header("Bullet properties")]
     [Tooltip("Preset value to tell with how much bullets will our waepon spawn inside rifle.")]
     public float bulletsInTheGun = 5;
 
+    private HealthScript hs;
+    private bool corotuineStarted;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        corotuineStarted = false;
+        hs = GetComponent<HealthScript>();
         HUD = GameObject.FindGameObjectWithTag("HUD");
         HUD_bullets = HUD.GetComponent<TextMesh>();
         HUD.SetActive(false);
+        deathImage = GameObject.FindGameObjectWithTag("DeathImage").gameObject.GetComponent<Image>();
+
     }
+    
 
     // Update is called once per frame
     void Update()
     {
-        if (Weapon.gameObject.activeInHierarchy != false)
+        if (HUD == null)
         {
-            HUD.SetActive(true);
-            HUD_bullets.text = bulletsInTheGun.ToString();
+            HUD = GameObject.FindGameObjectWithTag("HUD");
+            HUD_bullets = HUD.GetComponent<TextMesh>();
+        }
 
-
-            if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextFireTime)
+        if (!hs.isDead)
+        {
+            if (Weapon.gameObject.activeInHierarchy != false)
             {
-                if (PauseMenu.GamePaused != true)
-                {
-                    Shooting();
-                }
-            }
+                HUD.SetActive(true);
+                HUD_bullets.text = bulletsInTheGun.ToString();
 
-            
+
+                if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextFireTime)
+                {
+                    if (PauseMenu.GamePaused != true)
+                    {
+                        Shooting();
+                    }
+                }
+
+
+            }
+        }
+
+        else
+        {
+            if (!corotuineStarted)
+            {
+                StartCoroutine(Death());
+                corotuineStarted = true;
+            }
         }
     }
 
@@ -76,6 +106,23 @@ public class PlayerScript : MonoBehaviour
 
     }
 
+    private IEnumerator Death()
+    {
+        Debug.Log(deathImage);
+
+        while (deathImage.color.a < 1)
+        {
+            Color temp = deathImage.color;
+            temp.a += Time.unscaledDeltaTime;
+            deathImage.color = temp;
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        Time.timeScale = 1;
+        StaticLevelInfo.NextSceneToLoad = 2;
+        SceneManager.LoadScene(1);
+    }
 
 
 }

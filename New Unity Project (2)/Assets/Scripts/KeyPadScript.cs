@@ -9,12 +9,12 @@ public class KeyPadScript : MonoBehaviour
     public GameObject player;
     public GameObject TimeCont;
     public TextMeshProUGUI textMesh;
-    
-    public bool puzzle = false;
+
+    public bool puzzle;
     // Start is called before the first frame update
     void Start()
     {
-        
+        puzzle = false;
     }
 
     // Update is called once per frame
@@ -33,12 +33,15 @@ public class KeyPadScript : MonoBehaviour
             }
             
         }
-        else
-        {
+
+        //Bura pauseMenuyu patlatıyor
+
+        //else
+        //{
            
-            Cursor.visible = false;
-            Screen.lockCursor = true;
-        }
+        //    Cursor.visible = false;
+        //    Screen.lockCursor = true;
+        //}
     }
 
     private void OnTriggerEnter(Collider other)

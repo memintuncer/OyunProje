@@ -5,17 +5,23 @@ using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.FirstPerson;
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GamePaused = false;
-    public GameObject PauseUI;
+    public static bool GamePaused;
+    private GameObject PauseUI;
     public GameObject TimeController;
     bool isQuiting = false;
-    public GameObject player;
-    public GameObject crosshair;
+    private GameObject player;
+    private GameObject playerCanvases;
+
     // Start is called before the first frame update
     void Start()
     {
         /*Screen.lockCursor = true;
         Cursor.visible = false;*/
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerCanvases = player.transform.GetChild(1).gameObject;
+        PauseUI = transform.GetChild(0).gameObject;
+        GamePaused = false;
+        
     }
 
     // Update is called once per frame
@@ -24,9 +30,10 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
 
-           
+
             if (GamePaused)
             {
+                playerCanvases.SetActive(false);
                 player.GetComponent<FirstPersonController>().enabled = true;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
@@ -47,18 +54,23 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        Debug.Log("call");
         //Screen.lockCursor = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         GamePaused = false;
-       
+
+        
+        
+
         PauseUI.SetActive(false);
 
         if (TimeController.gameObject.activeInHierarchy != true)
         {
            TimeController.SetActive(true);
         }
-        crosshair.SetActive(true);
+
+        playerCanvases.SetActive(true);
         player.GetComponent<FirstPersonController>().enabled = true;
         
         Time.timeScale = 1f;
@@ -72,7 +84,6 @@ public class PauseMenu : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        crosshair.SetActive(false);
         if (PauseUI.gameObject.activeInHierarchy != true)
         {
             PauseUI.SetActive(true);
@@ -83,6 +94,8 @@ public class PauseMenu : MonoBehaviour
         {
             TimeController.SetActive(false);
         }
+
+        playerCanvases.SetActive(false);
         player.GetComponent<FirstPersonController>().enabled = false;
         
         Time.timeScale = 0f;
@@ -96,11 +109,11 @@ public class PauseMenu : MonoBehaviour
     }
     public void MainMenu()
     {
-        PauseUI.SetActive(false);
-        if (TimeController.gameObject.activeInHierarchy != false)
-        {
-            TimeController.SetActive(false);
-        }
+        //PauseUI.SetActive(false);
+        //if (TimeController.gameObject.activeInHierarchy != false)
+        //{
+        //    TimeController.SetActive(false);
+        //}
 
         Time.timeScale = 1f;
         StaticLevelInfo.NextSceneToLoad = 0;

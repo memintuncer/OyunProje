@@ -43,7 +43,10 @@ public class EnemyGunScript : MonoBehaviour
             animator = transform.root.GetComponent<Animator>();
             firstIteration = false;
         }
-        if (!health.isDead) Shooting();
+        if (!health.isDead)
+        {
+            Shooting();
+        }
     }
 
     void Shooting()

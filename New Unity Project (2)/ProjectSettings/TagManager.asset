@@ -17,6 +17,8 @@ TagManager:
   - FingerPrints
   - Crystal
   - Credits
+  - Fire
+  - DeathImage
   layers:
   - Default
   - TransparentFX

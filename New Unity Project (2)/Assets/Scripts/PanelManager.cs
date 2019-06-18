@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
@@ -93,4 +95,30 @@ public class PanelManager : MonoBehaviour {
 	{
 		EventSystem.current.SetSelectedGameObject(go);
 	}
+
+    //Levels
+    public void LoadLevel1()
+    {
+        Time.timeScale = 1;
+        StaticLevelInfo.NextSceneToLoad = 3;
+        SceneManager.LoadScene(1);
+    }
+
+    public void LoadLevel2()
+    {
+        StaticLevelInfo.NextSceneToLoad = 4;
+        SceneManager.LoadScene(1);
+    }
+
+    public void LoadLevel3()
+    {
+        StaticLevelInfo.NextSceneToLoad = 5;
+        SceneManager.LoadScene(1);
+    }
+
+    public void LoadLevelBoss()
+    {
+        StaticLevelInfo.NextSceneToLoad = 6;
+        SceneManager.LoadScene(1);
+    }
 }

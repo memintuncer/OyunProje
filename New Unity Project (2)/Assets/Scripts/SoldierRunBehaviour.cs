@@ -29,7 +29,6 @@ public class SoldierRunBehaviour : StateMachineBehaviour
         if (Vector3.Distance(animator.transform.position, lastKnownPos) <= mNavMeshAgent.stoppingDistance)
         {
             // Target reached
-            Debug.Log("STOPPED");
 
             bhvr.detechImage.enabled = false;
             bhvr.lostImage.enabled = true;

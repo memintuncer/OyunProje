@@ -12,9 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/TBScenes/LoadingScreen/LoadingScreen.unity
     guid: 2b906914d6604c940ae948116f862f43
   - enabled: 1
+    path: Assets/Scenes/TBScenes/GameOver.unity
+    guid: c806c7c8eba3a7a4d86e4a19c06efc64
+  - enabled: 1
     path: Assets/Scenes/TBScenes/Level1.unity
     guid: cbcca85a6cc93ad43b8fbccbc983ab1a
   - enabled: 1
     path: Assets/Scenes/TBScenes/Level2.unity
-    guid: 5bf1e6ffc4c83ec41951332cce77fb6c
+    guid: 0120c840412c17842a406d48daa0961f
+  - enabled: 1
+    path: Assets/Scenes/TBScenes/Level3.unity
+    guid: 8abb6dad1534c1143bd2ec081b91b1c4
+  - enabled: 1
+    path: Assets/Scenes/TBScenes/Boss.unity
+    guid: 68c253ae3f59e3e47b49506afe5e9721
   m_configObjects: {}
