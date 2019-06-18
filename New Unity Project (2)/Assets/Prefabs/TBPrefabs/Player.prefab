@@ -942,7 +942,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 128836, guid: c9e619a669d974fd28b5c89e43f2bce2, type: 3}
   bulletspawn: {fileID: 1551282605437532408}
   bulletSpeed: 10
-  lifetime: 5
   bulletsInTheGun: 5
 --- !u!114 &1551282606980891173
 MonoBehaviour:
@@ -973,7 +972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1551282607164707115
 RectTransform:
   m_ObjectHideFlags: 0
