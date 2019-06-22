@@ -31,7 +31,7 @@ public class BulletScript : MonoBehaviour {
 
         if (other.transform.tag == "LevelPart" || other.transform.tag == "Crystal")
         {
-            Vector3 pos =new Vector3(this.transform.position.x + floatInfrontOfWall, this.transform.position.y, this.transform.position.z);
+            //Vector3 pos =new Vector3(this.transform.position.x + floatInfrontOfWall, this.transform.position.y, this.transform.position.z);
             //    Instantiate(decalHitWall, pos, /*?*/Quaternion.LookRotation(other.transform.forward));
             //Destroy the bullet
             Destroy(gameObject);

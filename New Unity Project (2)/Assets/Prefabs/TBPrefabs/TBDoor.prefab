@@ -72,16 +72,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4049110623742938360, guid: 21f45e6f9c12a96458f59f69be7f06ec,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 3.1047578
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049110623742938360, guid: 21f45e6f9c12a96458f59f69be7f06ec,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 0.025381804
-      objectReference: {fileID: 0}
     - target: {fileID: 4049110624803556922, guid: 21f45e6f9c12a96458f59f69be7f06ec,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -91,6 +81,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049110623742938360, guid: 21f45e6f9c12a96458f59f69be7f06ec,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2.555894
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049110623742938360, guid: 21f45e6f9c12a96458f59f69be7f06ec,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.0064673424
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21f45e6f9c12a96458f59f69be7f06ec, type: 3}

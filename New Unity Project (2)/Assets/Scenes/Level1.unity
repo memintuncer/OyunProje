@@ -13235,22 +13235,13 @@ GameObject:
   m_Component:
   - component: {fileID: 751637969}
   - component: {fileID: 751637968}
-  - component: {fileID: 751637967}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: CinematicCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &751637967
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 751637966}
-  m_Enabled: 0
 --- !u!20 &751637968
 Camera:
   m_ObjectHideFlags: 0
@@ -26317,6 +26308,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 548a40efc092c6f408cc4d1691b171cc, type: 3}
+--- !u!1 &1604401980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1551282607223913769, guid: 0f55daf400ce3ff46bcbeabf859b397c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4673197274623856964}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1610559870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27850,7 +27847,7 @@ GameObject:
   - component: {fileID: 1690075326}
   - component: {fileID: 1690075325}
   m_Layer: 5
-  m_Name: HintCAnvas
+  m_Name: HintCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34191,9 +34188,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eae3de8917a26349ae7e75b309776e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2005259037}
   girl: {fileID: 945795094}
-  Camera: {fileID: 751637966}
+  playerCam: {fileID: 1604401980}
+  cinematicCam: {fileID: 751637966}
   timeleft: 11
   TimeMan: {fileID: 534199130}
 --- !u!1001 &2075365188
@@ -34719,6 +34716,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1551282605587780490, guid: 0f55daf400ce3ff46bcbeabf859b397c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551282605587780490, guid: 0f55daf400ce3ff46bcbeabf859b397c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 1551282606980891183, guid: 0f55daf400ce3ff46bcbeabf859b397c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34738,16 +34745,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1551282605587780490, guid: 0f55daf400ce3ff46bcbeabf859b397c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1551282605587780490, guid: 0f55daf400ce3ff46bcbeabf859b397c,
-        type: 3}
-      propertyPath: m_TagString
-      value: Weapon
       objectReference: {fileID: 0}
     - target: {fileID: 1551282605433727273, guid: 0f55daf400ce3ff46bcbeabf859b397c,
         type: 3}

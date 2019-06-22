@@ -1,23 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
+
 
 public class StartGame : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject player;
     public GameObject girl;
-    public GameObject Camera;
+    private GameObject player;
+    public GameObject playerCam;
+    public GameObject cinematicCam;
     private bool ispanel = false;
     public float timeleft;
     public GameObject TimeMan;
     Coroutine coroutine;
     //public GameObject crosshair;
+
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         girl.SetActive(true);
-        Camera.SetActive(true);
-        //player.transform.GetChild(0).gameObject.SetActive(false);
+
+        player.GetComponent<FirstPersonController>().enabled = false;
+
+        playerCam.GetComponent<Camera>().enabled = false;
+        cinematicCam.SetActive(true);
+
         TimeMan.SetActive(false);
         coroutine = StartCoroutine("StarttheGame");
     }
@@ -31,7 +40,12 @@ public class StartGame : MonoBehaviour
             { 
             StopCoroutine(coroutine);
             girl.SetActive(false);
-            Camera.SetActive(false);
+
+            player.GetComponent<FirstPersonController>().enabled = true;
+
+                cinematicCam.SetActive(false);
+                playerCam.GetComponent<Camera>().enabled = true;
+
             //player.SetActive(true);
             TimeMan.SetActive(true);
             //crosshair.SetActive(true);
@@ -48,8 +62,12 @@ public class StartGame : MonoBehaviour
         yield return new WaitForSeconds(timeleft);
 
         girl.SetActive(false);
-        Camera.SetActive(false);
-        player.transform.GetChild(0).gameObject.SetActive(true);
+
+        player.GetComponent<FirstPersonController>().enabled = true;
+
+        playerCam.GetComponent<Camera>().enabled = true;
+        cinematicCam.SetActive(false);
+
 
         //player.SetActive(true);
         TimeMan.SetActive(true);
