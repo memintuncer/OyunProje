@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 
 public class TurretScript1 : MonoBehaviour
@@ -9,7 +11,7 @@ public class TurretScript1 : MonoBehaviour
     // Start is called before the first frame update
     public GameObject Turret;
     public GameObject openPanel = null;
-    public Text hint;
+    public TextMeshProUGUI hint;
     public bool isDisabled = false;
 
     // Start is called before the first frame update

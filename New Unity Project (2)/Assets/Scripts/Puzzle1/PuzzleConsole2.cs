@@ -37,7 +37,7 @@ public class PuzzleConsole2 : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && gameObject.GetComponent<consoleScript>().Activate == false)
         {
             openPanel.SetActive(true);
 
@@ -48,7 +48,7 @@ public class PuzzleConsole2 : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" )
         {
             openPanel.SetActive(false);
         }

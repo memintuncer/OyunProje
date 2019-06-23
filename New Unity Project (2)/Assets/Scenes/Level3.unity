@@ -8687,11 +8687,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7449905692860577921, guid: 86543aee3558f1142b9a1564b4cb7c89,
-        type: 3}
-      propertyPath: m_Name
-      value: TBDoor (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 7449905692860380149, guid: 86543aee3558f1142b9a1564b4cb7c89,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8746,6 +8741,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449905692860577921, guid: 86543aee3558f1142b9a1564b4cb7c89,
+        type: 3}
+      propertyPath: m_Name
+      value: TBDoor (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86543aee3558f1142b9a1564b4cb7c89, type: 3}
@@ -10742,16 +10742,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1295509918}
     m_Modifications:
-    - target: {fileID: 7449905692860577921, guid: 86543aee3558f1142b9a1564b4cb7c89,
-        type: 3}
-      propertyPath: m_Name
-      value: TBDoor (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7449905692860577921, guid: 86543aee3558f1142b9a1564b4cb7c89,
-        type: 3}
-      propertyPath: m_TagString
-      value: LevelPart
-      objectReference: {fileID: 0}
     - target: {fileID: 7449905692860380149, guid: 86543aee3558f1142b9a1564b4cb7c89,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10806,6 +10796,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449905692860577921, guid: 86543aee3558f1142b9a1564b4cb7c89,
+        type: 3}
+      propertyPath: m_Name
+      value: TBDoor (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449905692860577921, guid: 86543aee3558f1142b9a1564b4cb7c89,
+        type: 3}
+      propertyPath: m_TagString
+      value: LevelPart
       objectReference: {fileID: 0}
     - target: {fileID: 7449905692860627535, guid: 86543aee3558f1142b9a1564b4cb7c89,
         type: 3}
@@ -14857,16 +14857,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1295509918}
     m_Modifications:
-    - target: {fileID: 7449905692860577921, guid: 86543aee3558f1142b9a1564b4cb7c89,
-        type: 3}
-      propertyPath: m_Name
-      value: TBDoor (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7449905692860577921, guid: 86543aee3558f1142b9a1564b4cb7c89,
-        type: 3}
-      propertyPath: m_TagString
-      value: LevelPart
-      objectReference: {fileID: 0}
     - target: {fileID: 7449905692860380149, guid: 86543aee3558f1142b9a1564b4cb7c89,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14921,6 +14911,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449905692860577921, guid: 86543aee3558f1142b9a1564b4cb7c89,
+        type: 3}
+      propertyPath: m_Name
+      value: TBDoor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449905692860577921, guid: 86543aee3558f1142b9a1564b4cb7c89,
+        type: 3}
+      propertyPath: m_TagString
+      value: LevelPart
       objectReference: {fileID: 0}
     - target: {fileID: 7449905692860627535, guid: 86543aee3558f1142b9a1564b4cb7c89,
         type: 3}
@@ -19920,6 +19920,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114048599433676842, guid: f72d03e48b3dbfd4ca0f692e695377c3,
+        type: 3}
+      propertyPath: cooldown
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114048599433676842, guid: f72d03e48b3dbfd4ca0f692e695377c3,
+        type: 3}
+      propertyPath: firingRange
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f72d03e48b3dbfd4ca0f692e695377c3, type: 3}
 --- !u!4 &1595431324 stripped
@@ -22179,11 +22189,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7449905692860577921, guid: 86543aee3558f1142b9a1564b4cb7c89,
-        type: 3}
-      propertyPath: m_Name
-      value: TBDoor
-      objectReference: {fileID: 0}
     - target: {fileID: 7449905692860380149, guid: 86543aee3558f1142b9a1564b4cb7c89,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22238,6 +22243,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449905692860577921, guid: 86543aee3558f1142b9a1564b4cb7c89,
+        type: 3}
+      propertyPath: m_Name
+      value: TBDoor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86543aee3558f1142b9a1564b4cb7c89, type: 3}
@@ -24928,16 +24938,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1295509918}
     m_Modifications:
-    - target: {fileID: 7449905692860577921, guid: 86543aee3558f1142b9a1564b4cb7c89,
-        type: 3}
-      propertyPath: m_Name
-      value: TBDoor (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7449905692860577921, guid: 86543aee3558f1142b9a1564b4cb7c89,
-        type: 3}
-      propertyPath: m_TagString
-      value: LevelPart
-      objectReference: {fileID: 0}
     - target: {fileID: 7449905692860380149, guid: 86543aee3558f1142b9a1564b4cb7c89,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24997,6 +24997,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7997906
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449905692860577921, guid: 86543aee3558f1142b9a1564b4cb7c89,
+        type: 3}
+      propertyPath: m_Name
+      value: TBDoor (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449905692860577921, guid: 86543aee3558f1142b9a1564b4cb7c89,
+        type: 3}
+      propertyPath: m_TagString
+      value: LevelPart
       objectReference: {fileID: 0}
     - target: {fileID: 7449905692860627535, guid: 86543aee3558f1142b9a1564b4cb7c89,
         type: 3}

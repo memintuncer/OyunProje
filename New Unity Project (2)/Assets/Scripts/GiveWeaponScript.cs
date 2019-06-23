@@ -5,10 +5,10 @@ using UnityEngine;
 public class GiveWeaponScript : MonoBehaviour
 {
     
-    public bool pushed=false;
+    public bool pushed;
     public GameObject weapon;
     //public GameObject Tb;
-
+    private bool isTaken = false;
     public GameObject openPanel = null;
     //public GameObject weapon;
     private bool ispanel = false;
@@ -17,7 +17,7 @@ public class GiveWeaponScript : MonoBehaviour
    
     void  Start()
     {
-       
+        pushed = false;
     }
 
     
@@ -31,6 +31,8 @@ public class GiveWeaponScript : MonoBehaviour
                 if (weapon.activeInHierarchy == false)
                 {
                     weapon.SetActive(true);
+                    //openPanel.SetActive(false);
+                    //ispanel = false;
                 }
                 
   
@@ -41,7 +43,7 @@ public class GiveWeaponScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player"&& pushed==false)
         {
             openPanel.SetActive(true);
             ispanel = true;
